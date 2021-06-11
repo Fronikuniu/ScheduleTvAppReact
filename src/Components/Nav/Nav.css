@@ -1,0 +1,85 @@
+.btn {
+  border: none;
+  border-radius: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+.logo {
+  width: 60px;
+}
+
+.navi-top {
+  height: 80px;
+  background-image: url('../../assets/images/NavBg.jpg');
+}
+
+.navi-top .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navi__form {
+  display: flex;
+  height: 2.5rem;
+}
+
+.navi__input {
+  height: 100%;
+  width: 20rem;
+  border: none;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-form {
+  height: 100%;
+  width: 5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding-right: 1rem;
+  font-size: 2rem;
+  color: rgb(107, 107, 107);
+  background-color: rgb(238, 238, 238);
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.btn-form:hover {
+  color: rgb(238, 238, 238);
+  background-color: rgb(153, 153, 153);
+}
+
+.navi-bottom {
+  background-color: tomato;
+  height: 2.2rem;
+  font-size: 1.4rem;
+}
+
+.navi-bottom__links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  height: 100%;
+}
+
+.navi-bottom__links a {
+  display: flex;
+  align-items: center;
+  color: rgb(38, 38, 38);
+  height: 100%;
+  padding: 0 20px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.navi-bottom__links a:hover {
+  color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.22);
+}
