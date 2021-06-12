@@ -15,6 +15,8 @@ input {
 .navi-top {
   height: 80px;
   background-image: url('../../assets/images/NavBg.jpg');
+  background-position: top;
+  background-size: cover;
 }
 
 .navi-top .container {
@@ -33,8 +35,6 @@ input {
   height: 100%;
   width: 20rem;
   border: none;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
   padding-left: 1rem;
   font-size: 0.9rem;
 }
@@ -60,6 +60,7 @@ input {
   background-color: tomato;
   height: 2.2rem;
   font-size: 1.4rem;
+  margin-bottom: 50px;
 }
 
 .navi-bottom__links {
@@ -80,6 +81,25 @@ input {
 }
 
 .navi-bottom__links a:hover {
-  color: aliceblue;
-  background-color: rgba(0, 0, 0, 0.22);
+  color: rgb(241, 241, 241);
+  background-color: rgb(33, 33, 33);
+}
+
+.navi__select {
+  border-top-left-radius: 1rem;
+  color: rgb(107, 107, 107);
+  background-color: rgb(238, 238, 238);
+  font-weight: 800;
+  font-size: 0.9rem;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.navi__select option {
+  color: rgb(107, 107, 107);
+  background-color: rgb(238, 238, 238);
+  font-weight: 600;
 }

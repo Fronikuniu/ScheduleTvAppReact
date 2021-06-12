@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import * as icon from '../../assets/icons';
 import './Nav.css';
 
 function Nav() {
+  const [searchInputValue, setSearchInputValue] = useState('');
+  const [searchSelectValue, setSearchSelectValue] = useState('shows');
+
   return (
     <>
       <nav className="navi">
@@ -12,9 +16,35 @@ function Nav() {
               <img className="logo" src={icon.Logo} alt="Logo" />
             </Link>
 
-            <form className="navi__form">
-              <input className="navi__input" type="text" placeholder="Search film" />
-              <button className="btn btn-form material-icons md-48">search</button>
+            <form
+              className="navi__form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                <Redirect to={`/search/${searchSelectValue}=${searchInputValue}`} />;
+              }}
+            >
+              <select
+                onChange={(event) => {
+                  setSearchSelectValue(event.target.value);
+                }}
+                className="navi__select"
+                name="showsOrPeople"
+              >
+                <option value="shows">Shows</option>
+                <option value="people">People</option>
+              </select>
+              <input
+                onChange={(event) => {
+                  setSearchInputValue(event.target.value);
+                }}
+                value={searchInputValue}
+                className="navi__input"
+                type="text"
+                placeholder="Search shows or people"
+              />
+              <Link to={`/search/${searchSelectValue}=${searchInputValue}`}>
+                <button className="btn btn-form material-icons">search</button>
+              </Link>
             </form>
           </div>
         </div>
