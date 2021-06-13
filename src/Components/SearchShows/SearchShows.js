@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { searchShowByQuery } from '../Requests/Requests';
+import SingleShowCard from '../SingleShowCard/SingleShowCard';
 import './SearchShows.css';
 
 function SearchShows() {
@@ -8,8 +9,8 @@ function SearchShows() {
   const { query } = useParams();
 
   useEffect(() => {
-    searchShowByQuery(query).then((searchNameResults) => {
-      const { data } = searchNameResults;
+    searchShowByQuery(query).then((searchQueryResults) => {
+      const { data } = searchQueryResults;
 
       if (data.error) {
         return;
@@ -36,7 +37,7 @@ function SearchShows() {
           </h1>
           <div className="search-shows__display">
             {searchList.map((data) => (
-              <p>{data.show.name}</p>
+              <SingleShowCard key={data.show.id} data={data.show} />
             ))}
           </div>
         </div>

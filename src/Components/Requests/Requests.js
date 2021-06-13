@@ -18,8 +18,8 @@ export const getShowsInfoById = (id) => {
   return { episodes, id: episodes.id, seasons, cast, crew, images };
 };
 
-export const searchPeopleByName = (people) => {
-  return axios.get(`http://api.tvmaze.com/search/people?q=${people}`);
+export const searchPeopleByName = (name) => {
+  return axios.get(`http://api.tvmaze.com/search/people?q=${name}`);
 };
 
 export const getPeopleInfoById = (id) => {

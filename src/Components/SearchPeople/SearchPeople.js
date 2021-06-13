@@ -1,33 +1,39 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { searchShowByQuery } from '../Requests/Requests';
+import { searchPeopleByName } from '../Requests/Requests';
+import SinglePeopleCard from '../SinglePeopleCard/SinglePeopleCard';
 import './SearchPeople.css';
 
 function SearchPeople() {
   const [searchList, setSearchListContent] = useState([]);
-  const { query } = useParams();
+  const { name } = useParams();
 
   useEffect(() => {
-    searchShowByQuery(query).then((searchNameResults) => {
+    searchPeopleByName(name).then((searchNameResults) => {
       const { data } = searchNameResults;
 
       if (data.error) {
         return;
       }
 
-      const { results } = data;
-      setSearchListContent(results);
+      setSearchListContent(data);
+
+      console.log(data);
     });
-  }, [query]);
+  }, [name]);
 
   return (
     <>
       <section className="search-shows__container">
         <div className="container">
           <h1>
-            Searching people by: <span>{query}</span>
-            {searchList}
+            Searching people by: <span>{name}</span>
           </h1>
+          <div className="search-shows__display">
+            {searchList.map((data) => (
+              <SinglePeopleCard key={data.person.id} data={data.person} />
+            ))}
+          </div>
         </div>
       </section>
     </>

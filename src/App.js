@@ -22,7 +22,7 @@ function App() {
               <Route path="/search/shows=:query">
                 <SearchShows />
               </Route>
-              <Route path="/search/people=:query">
+              <Route path="/search/people=:name">
                 <SearchPeople />
               </Route>
             </Switch>
