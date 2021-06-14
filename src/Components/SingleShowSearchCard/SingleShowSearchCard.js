@@ -1,12 +1,8 @@
 import { Link } from 'react-router-dom';
 import placeholder from '../../assets/images/placeholder.jpg';
-import './SingleShowCard.css';
+import './SingleShowSearchCard.css';
 
-function SingleShowCard({ data }) {
-  if (data.network === null) {
-    console.log('Pusty obiekt');
-  }
-
+function SingleShowSearchCard({ data }) {
   return (
     <>
       <div className="single-show-card">
@@ -25,17 +21,25 @@ function SingleShowCard({ data }) {
           <h1>
             <Link to="">{data.name}</Link>{' '}
             <span>
-              (
-              <Link to="" className="single-show-card__text-network">
-                {data.network != null ? data.network.name : '-'}
-              </Link>{' '}
-              <img
-                className="h1__flag"
-                src={`//static.tvmaze.com/intvendor/flags/${data.network != null ? data.network.country.code.toLowerCase() : ''}.png`}
-                alt={data.network != null ? data.network.country.name : ''}
-                title={data.network != null ? data.network.country.name : ''}
-              />
-              , {data.premiered} )
+              {data.network != null ? (
+                <>
+                  <Link to="" className="single-show-card__text-network">
+                    {data.network.name}
+                  </Link>{' '}
+                  <img
+                    className="h1__flag"
+                    src={`//static.tvmaze.com/intvendor/flags/${data.network.country.code.toLowerCase()}.png`}
+                    alt={data.network.country.name}
+                    title={data.network.country.name}
+                  />
+                </>
+              ) : (
+                ''
+              )}
+
+              {data.network != null && data.premiered != null ? ', ' : ''}
+
+              {data.premiered}
             </span>
           </h1>
 
@@ -66,4 +70,4 @@ function SingleShowCard({ data }) {
   );
 }
 
-export default SingleShowCard;
+export default SingleShowSearchCard;

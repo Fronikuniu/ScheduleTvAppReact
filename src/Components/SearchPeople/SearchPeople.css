@@ -5,3 +5,11 @@
 h1 span {
   color: tomato;
 }
+
+.search-people {
+  width: 100%;
+}
+
+.search-people__display {
+  width: 70%;
+}

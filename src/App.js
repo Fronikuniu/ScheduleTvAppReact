@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Nav />
         <main>
-          <section className="">
+          <section className="content">
             <Switch>
               <Route exact path="/"></Route>
               <Route path="/Shows">

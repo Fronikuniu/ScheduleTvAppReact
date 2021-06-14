@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { searchPeopleByName } from '../Requests/Requests';
-import SinglePeopleCard from '../SinglePeopleCard/SinglePeopleCard';
+import SinglePeopleSearchCard from '../SinglePeopleSearchCard/SinglePeopleSearchCard';
 import './SearchPeople.css';
 
 function SearchPeople() {
@@ -24,16 +24,19 @@ function SearchPeople() {
 
   return (
     <>
-      <section className="search-shows__container">
+      <section className="search-people__container">
         <div className="container">
           <h1>
             Searching people by: <span>{name}</span>
           </h1>
-          <div className="search-shows__display">
-            {searchList.map((data) => (
-              <SinglePeopleCard key={data.person.id} data={data.person} />
-            ))}
+          <div className="search-people">
+            <div className="search-people__display">
+              {searchList.map((data) => (
+                <SinglePeopleSearchCard key={data.person.id} data={data.person} />
+              ))}
+            </div>
           </div>
+          <></>
         </div>
       </section>
     </>
