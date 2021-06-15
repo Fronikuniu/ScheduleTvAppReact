@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { searchShowByQuery } from '../Requests/Requests';
 import SingleShowSearchCard from '../SingleShowSearchCard/SingleShowSearchCard';
+import Ads from '../Ads/Ads';
 import './SearchShows.css';
 
 function SearchShows() {
@@ -23,8 +24,6 @@ function SearchShows() {
       // }
       //
       // Destructuring an object in array || Destrukturyzacja obiektu w tablicy
-
-      console.log(data);
     });
   }, [query]);
 
@@ -38,9 +37,12 @@ function SearchShows() {
           <div className="search-shows">
             <div className="search-shows__display">
               {searchList.map((data) => (
-                <SingleShowSearchCard key={data.show.id} data={data.show} />
+                <SingleShowSearchCard key={data.show.id} data={data.show} id={data.id} />
               ))}
             </div>{' '}
+            <aside>
+              <Ads />
+            </aside>
           </div>
         </div>
       </section>

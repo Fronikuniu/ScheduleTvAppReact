@@ -1,0 +1,7 @@
+.show-details__container {
+  width: 100%;
+}
+
+.show-details__container .container {
+  display: flex;
+}

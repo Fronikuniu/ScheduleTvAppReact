@@ -9,6 +9,7 @@ h1 span {
 
 .search-shows {
   width: 100%;
+  display: flex;
 }
 
 .search-shows__display {

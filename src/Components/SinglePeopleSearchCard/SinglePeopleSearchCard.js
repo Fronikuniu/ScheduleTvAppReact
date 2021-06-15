@@ -8,7 +8,7 @@ function SinglePeopleSearchCard({ data }) {
       <div className="single-people-card">
         <div className="single-people-card__image">
           <Link to="">
-            <img src={data.image != null ? data.image.medium : placeholder} alt={data.name} />
+            <img className="card" src={data.image != null ? data.image.medium : placeholder} alt={data.name} />
           </Link>
 
           <div className="single-people-card__follow">

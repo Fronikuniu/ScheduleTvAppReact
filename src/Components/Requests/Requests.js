@@ -4,18 +4,20 @@ export const searchShowByQuery = (query) => {
   return axios.get(`http://api.tvmaze.com/search/shows?q=${query}`);
 };
 
-export const getShowsInfoById = (id) => {
-  const { data: episodes } = axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
+export const getShowsInfoById = async (id) => {
+  const { data: basic } = await axios.get(`http://api.tvmaze.com/shows/${id}`);
 
-  const { data: seasons } = axios.get(`http://api.tvmaze.com/shows/${id}/seasons`);
+  const { data: episodes } = await axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
 
-  const { data: cast } = axios.get(`http://api.tvmaze.com/shows/${id}/cast`);
+  const { data: seasons } = await axios.get(`http://api.tvmaze.com/shows/${id}/seasons`);
 
-  const { data: crew } = axios.get(`http://api.tvmaze.com/shows/${id}/crew`);
+  const { data: cast } = await axios.get(`http://api.tvmaze.com/shows/${id}/cast`);
 
-  const { data: images } = axios.get(`http://api.tvmaze.com/shows/${id}/images`);
+  const { data: crew } = await axios.get(`http://api.tvmaze.com/shows/${id}/crew`);
 
-  return { episodes, id: episodes.id, seasons, cast, crew, images };
+  const { data: images } = await axios.get(`http://api.tvmaze.com/shows/${id}/images`);
+
+  return { basic, episodes, seasons, cast, crew, images };
 };
 
 export const searchPeopleByName = (name) => {

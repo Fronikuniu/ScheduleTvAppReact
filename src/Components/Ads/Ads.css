@@ -1,0 +1,9 @@
+.ads {
+  width: 90%;
+}
+
+.ads img {
+  width: 100%;
+  height: unset;
+  margin: 2rem 0;
+}

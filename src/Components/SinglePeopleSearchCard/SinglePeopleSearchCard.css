@@ -21,11 +21,6 @@
   flex-direction: column;
 }
 
-img {
-  width: 170px;
-  height: 239px;
-}
-
 .single-people-card__follow {
   background-color: tomato;
   height: 2.3rem;

@@ -21,7 +21,7 @@
   flex-direction: column;
 }
 
-img {
+.card {
   width: 170px;
   height: 239px;
 }

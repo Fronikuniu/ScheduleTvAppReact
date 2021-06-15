@@ -12,3 +12,21 @@ h1 {
   font-size: 3rem;
   font-weight: 500;
 }
+
+aside {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+b {
+  font-weight: 500;
+}
+
+u {
+  text-decoration: underline;
+}
+
+i {
+  font-style: italic;
+}

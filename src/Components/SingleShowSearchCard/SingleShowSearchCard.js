@@ -7,8 +7,8 @@ function SingleShowSearchCard({ data }) {
     <>
       <div className="single-show-card">
         <div className="single-show-card__image">
-          <Link to="">
-            <img src={data.image != null ? data.image.medium : placeholder} alt={data.name} />
+          <Link to={`/search/show/${data.id}`}>
+            <img className="card" src={data.image != null ? data.image.medium : placeholder} alt={data.name} />
           </Link>
 
           <div className="single-show-card__follow">
@@ -19,7 +19,7 @@ function SingleShowSearchCard({ data }) {
         </div>
         <div className="single-show-card__text">
           <h1>
-            <Link to="">{data.name}</Link>{' '}
+            <Link to={`/search/show/${data.id}`}>{data.name}</Link>{' '}
             <span>
               {data.network != null ? (
                 <>

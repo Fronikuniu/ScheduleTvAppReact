@@ -1,9 +1,10 @@
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
 import SearchShows from './Components/SearchShows/SearchShows';
 import SearchPeople from './Components/SearchPeople/SearchPeople';
 import Shows from './Components/Shows/Shows';
+import ShowDetails from './Components/ShowDetails/ShowDetails';
+import './App.css';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
               </Route>
               <Route path="/search/people=:name">
                 <SearchPeople />
+              </Route>
+              <Route path="/search/show/:id">
+                <ShowDetails />
               </Route>
             </Switch>
           </section>
