@@ -1,6 +1,7 @@
 import Ads from '../Ads/Ads';
 import { Link } from 'react-router-dom';
 import placeholder from '../../assets/images/placeholder.jpg';
+import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import './ShowDetailsView.css';
 
 function ShowDetailsView({ basic }) {
@@ -12,29 +13,17 @@ function ShowDetailsView({ basic }) {
     <>
       <div className="show-details-view">
         <h1>{basic.name}</h1>
-        <div className="show-details-view__menu">
-          <Link className="show-details-view__menu-item active" to={`/search/show/${basic.id}`}>
-            Main
-          </Link>
-          <Link className="show-details-view__menu-item" to={`/search/show/${basic.id}`}>
-            Episodes
-          </Link>
-          <Link className="show-details-view__menu-item" to={`/search/show/${basic.id}`}>
-            Cast
-          </Link>
-          <Link className="show-details-view__menu-item" to={`/search/show/${basic.id}`}>
-            Crew
-          </Link>
-          <Link className="show-details-view__menu-item" to={`/search/show/${basic.id}`}>
-            Gallery
-          </Link>
-        </div>
+        <ShowDetailsViewMenu basic={basic} />
 
         <div className="show-details-view__display">
-          <img className="view" src={basic.image != null ? basic.image.medium : placeholder} alt={basic.name} />
-          <div className="show-details-view__text">
-            <span dangerouslySetInnerHTML={createMarkup()}></span>
+          <div className="view">
+            <img src={basic.image != null ? basic.image.medium : placeholder} alt={basic.name} />
+            <div className="view__follow">
+              <span className="material-icons">favorite_border</span>
+              <span> Follow</span>
+            </div>
           </div>
+          <div className="show-details-view__text" dangerouslySetInnerHTML={createMarkup()}></div>
         </div>
       </div>
 
@@ -84,7 +73,10 @@ function ShowDetailsView({ basic }) {
             Language: <span>{basic.language}</span>
           </h3>
 
-          <p>Rating: {basic.rating.average}</p>
+          <p className="show-details-view__aside__rating">
+            <span class="material-icons-round star">star_border</span>
+            Rating: {basic.rating.average}
+          </p>
         </div>
 
         <Ads />

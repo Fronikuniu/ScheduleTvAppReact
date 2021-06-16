@@ -4,6 +4,9 @@ import './reset.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'material-icons/iconfont/filled.css';
+import 'material-icons/iconfont/outlined.css';
+import 'material-icons/iconfont/round.css';
 
 ReactDOM.render(
   <React.StrictMode>
