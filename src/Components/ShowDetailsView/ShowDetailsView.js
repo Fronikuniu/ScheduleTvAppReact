@@ -4,7 +4,7 @@ import placeholder from '../../assets/images/placeholder.jpg';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import './ShowDetailsView.css';
 
-function ShowDetailsView({ basic }) {
+function ShowDetailsView({ basic, episodes, seasons }) {
   function createMarkup() {
     return { __html: basic.summary };
   }
@@ -25,6 +25,8 @@ function ShowDetailsView({ basic }) {
           </div>
           <div className="show-details-view__text" dangerouslySetInnerHTML={createMarkup()}></div>
         </div>
+
+        <div className="show-details-view__basic-episodes"></div>
       </div>
 
       <aside className="show-details-view__aside">
@@ -48,35 +50,31 @@ function ShowDetailsView({ basic }) {
                 </>
               ) : (
                 ''
-              )}{' '}
-              ({basic.premiered})
+              )}
             </span>
           </h3>
-
+          <h3>
+            Premiered: <span>{basic.premiered}</span>
+          </h3>
           <h3>
             Schedule: <span>{basic.schedule != null ? `${basic.schedule.days} at ${basic.schedule.time} (${basic.runtime}min)` : ''}</span>
           </h3>
-
           <h3>
             Status: <span>{basic.status}</span>
           </h3>
-
           <h3>
             Show type: <span>{basic.type}</span>
           </h3>
-
           <h3>
             Genres: <span>{basic.genres + ''}</span>
           </h3>
-
           <h3>
             Language: <span>{basic.language}</span>
           </h3>
-
-          <p className="show-details-view__aside__rating">
-            <span class="material-icons-round star">star_border</span>
-            Rating: {basic.rating.average}
-          </p>
+          <h3 className="show-details-view__aside__rating">
+            <i className="material-icons-round star">star_border</i>
+            Rating: {basic.rating != null ? basic.rating.average : ''}
+          </h3>
         </div>
 
         <Ads />

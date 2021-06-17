@@ -11,9 +11,9 @@ function ShowDetails() {
   useEffect(() => {
     const getShowDetailsInfo = async () => {
       const basicTab = [];
-      const { basic } = await getShowsInfoById(id);
+      const data = await getShowsInfoById(id);
 
-      basicTab.push(basic);
+      basicTab.push(data);
       setShowDetailsInfo(basicTab);
     };
     getShowDetailsInfo();
@@ -25,8 +25,8 @@ function ShowDetails() {
     <>
       <section className="show-details__container">
         <div className="container">
-          {showDetailsInfo.map((basic) => (
-            <ShowDetailsView key={basic.id} basic={basic} />
+          {showDetailsInfo.map(({ basic, episodes, seasons }) => (
+            <ShowDetailsView key={basic.id} basic={basic} episodes={episodes} seasons={seasons} />
           ))}
         </div>
       </section>

@@ -4,6 +4,7 @@ import SearchShows from './Components/SearchShows/SearchShows';
 import SearchPeople from './Components/SearchPeople/SearchPeople';
 import Shows from './Components/Shows/Shows';
 import ShowDetails from './Components/ShowDetails/ShowDetails';
+import ShowEpisodesDetails from './Components/ShowEpisodesDetails/ShowEpisodesDetails';
 import './App.css';
 
 function App() {
@@ -26,8 +27,11 @@ function App() {
               <Route path="/search/people=:name">
                 <SearchPeople />
               </Route>
-              <Route path="/search/show/:id">
+              <Route exact path="/search/show/:id">
                 <ShowDetails />
+              </Route>
+              <Route path="/search/show/:id/episodes">
+                <ShowEpisodesDetails />
               </Route>
             </Switch>
           </section>
