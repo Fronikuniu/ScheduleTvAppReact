@@ -1,88 +1,111 @@
-.show-details-view {
-  width: 70%;
-}
-
-.show-details-view__menu {
+.show-episodes-details-view__display {
   display: flex;
-  margin: 10px 0;
+  flex-direction: column;
 }
 
-.show-details-view__display {
+.show-episodes-details-view__display-seasons {
+  margin-bottom: 40px;
+}
+
+.seasons-data {
   display: flex;
+  justify-content: space-evenly;
+  border: 4px dotted tomato;
 }
 
-.show-details-view__text {
-  width: 70%;
+.seasons-data a {
   padding: 1rem;
-}
-
-.show-details-view__text p {
-  line-height: 125%;
-}
-
-.view {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-}
-
-.view__follow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  background-color: tomato;
-  border-bottom: 2px solid rgb(231, 58, 27);
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.view__follow:hover {
-  background-color: rgb(231, 58, 27);
-}
-
-/* .show-details-view__basic-episodes {
-} */
-
-.show-details-view__aside {
-  flex-direction: column;
-  align-items: center;
-  margin-top: 112px;
-}
-
-.show-details-view__aside__info {
-  border: 1px solid tomato;
-  width: 100%;
-  padding: 1.5rem;
-}
-
-.show-details-view__aside__info h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.show-details-view__aside__info h3 {
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.show-details-view__aside__info h3 span {
-  font-size: 1.2rem;
-  font-weight: normal;
-}
-
-.show-details-view__aside__info h3 span a {
   color: tomato;
 }
 
-.show-details-view__aside__rating {
+.show-episodes-details-view__display-episodes {
   display: flex;
-  align-items: center;
-  margin-top: 15px;
+  flex-direction: column-reverse;
+  box-shadow: 0 0 1px lightgray;
+  margin-bottom: 50px;
 }
 
-.star {
-  font-size: 2rem;
+.episodes-info,
+.episodes-data {
+  display: flex;
+}
+
+.episodes-info-item {
+  background-color: tomato;
+  padding: 0.5rem;
+  border-right: 1px solid white;
+}
+
+.episodes-info-item:last-of-type {
+  border: none;
+}
+
+.episodes-info-item:nth-of-type(1),
+.episodes-data-item:nth-of-type(1) {
+  width: 12%;
+}
+
+.episodes-info-item:nth-of-type(2),
+.episodes-data-item:nth-of-type(2) {
+  width: 12%;
+}
+
+.episodes-info-item:nth-of-type(3),
+.episodes-data-item:nth-of-type(3) {
+  width: 22%;
+}
+
+.episodes-info-item:nth-of-type(4),
+.episodes-data-item:nth-of-type(4) {
+  width: 54%;
+}
+
+.episodes-info-item:nth-of-type(1),
+.episodes-info-item:nth-of-type(2),
+.episodes-data-item:nth-of-type(1),
+.episodes-data-item:nth-of-type(2) {
+  justify-content: center;
+  text-align: center;
+}
+
+.episodes-data-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.episodes-data:nth-of-type(1n) {
+  background-color: #ebebeb;
+}
+
+.episodes-data:nth-of-type(2n) {
+  background-color: white;
+}
+
+.episodes-data-item a {
+  color: tomato;
+}
+
+.episodes-data-item a:hover {
+  text-decoration: underline;
+}
+
+.change-episode__list__guide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.change-episode__list__guide {
+  border: 1px solid lightgray;
+  background-color: tomato;
+  padding: 0.7rem;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.change-episode__list__guide:hover {
+  background-color: rgb(223, 66, 39);
 }
