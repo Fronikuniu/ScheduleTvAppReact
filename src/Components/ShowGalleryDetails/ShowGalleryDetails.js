@@ -42,7 +42,7 @@ function ShowGalleryDetails() {
                               : image.resolutions.original.url
                             : ''
                         }
-                        alt={image.type}
+                        alt={image.type != null ? image.type : 'Gallery img'}
                       />
                     );
                   })}

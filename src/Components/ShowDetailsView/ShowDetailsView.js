@@ -66,7 +66,12 @@ function ShowDetailsView({ basic, episodes, seasons }) {
             Show type: <span>{basic.type}</span>
           </h3>
           <h3>
-            Genres: <span>{basic.genres + ''}</span>
+            Genres:{' '}
+            <span>
+              {basic.genres.map((genre) => {
+                return `${genre} `;
+              })}
+            </span>
           </h3>
           <h3>
             Language: <span>{basic.language}</span>
