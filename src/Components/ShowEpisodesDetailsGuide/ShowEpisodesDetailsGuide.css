@@ -1,0 +1,39 @@
+.episode-details-guide-item {
+  background-color: rgb(255, 230, 225);
+  padding: 1rem;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.episode-details-guide-item h4 {
+  color: tomato;
+}
+
+.episode-details-guide-item-episode-info {
+  padding: 0.4rem 0 0 0.4rem;
+  font-weight: 500;
+}
+
+.episode-details-guide-item-episode-info span {
+  font-weight: normal;
+}
+
+.episode-details-guide-item-episode-summary {
+  padding: 0.8rem;
+}
+
+.episode-details-guide-item-episode-summary img {
+  float: left;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
+.episode-details-guide-item-episode-summary p {
+  font-size: 0.95em;
+  line-height: 130%;
+}
+
+.placeholder-episodes {
+  height: 140px;
+  width: 250px;
+}

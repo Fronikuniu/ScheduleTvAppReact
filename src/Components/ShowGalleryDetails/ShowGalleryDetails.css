@@ -1,0 +1,10 @@
+.show-gallery-view__display {
+  padding-top: 10px;
+  column-count: 3;
+}
+
+.show-gallery-view__display img {
+  width: 240px;
+  margin-bottom: 25px;
+  outline: 1px solid tomato;
+}

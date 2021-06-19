@@ -18,6 +18,10 @@
   color: tomato;
 }
 
+.seasons-data a:hover {
+  text-decoration: underline;
+}
+
 .show-episodes-details-view__display-episodes {
   display: flex;
   flex-direction: column-reverse;

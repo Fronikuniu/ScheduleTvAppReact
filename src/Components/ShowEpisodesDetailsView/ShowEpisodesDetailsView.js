@@ -3,17 +3,6 @@ import { Link } from 'react-router-dom';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import './ShowEpisodesDetailsView.css';
 
-function EpisodesInfo() {
-  return (
-    <div className="episodes-info">
-      <div className="episodes-info-item">Season</div>
-      <div className="episodes-info-item">Number</div>
-      <div className="episodes-info-item">Date</div>
-      <div className="episodes-info-item">Name</div>
-    </div>
-  );
-}
-
 function ShowEpisodesDetailsView({ basic, episodes, seasons }) {
   return (
     <>
@@ -37,7 +26,12 @@ function ShowEpisodesDetailsView({ basic, episodes, seasons }) {
 
           <div>
             <h2>Episodes</h2>
-            <EpisodesInfo />
+            <div className="episodes-info">
+              <div className="episodes-info-item">Season</div>
+              <div className="episodes-info-item">Number</div>
+              <div className="episodes-info-item">Date</div>
+              <div className="episodes-info-item">Name</div>
+            </div>
             <div className="show-episodes-details-view__display-episodes">
               {episodes.map((episode) => {
                 return (
@@ -57,9 +51,9 @@ function ShowEpisodesDetailsView({ basic, episodes, seasons }) {
       </div>
 
       <aside className="show-details-view__aside">
-        <Link to="">
+        <Link to={`/search/show/${basic.id}/episodesguide`}>
           <button className="change-episode__list__guide">
-            <span class="material-icons-outlined">explore</span> Episode Guide
+            <span className="material-icons-outlined">explore</span> Episodes Guide
           </button>
         </Link>
 

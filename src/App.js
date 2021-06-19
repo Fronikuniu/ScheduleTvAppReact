@@ -5,6 +5,8 @@ import SearchPeople from './Components/SearchPeople/SearchPeople';
 import Shows from './Components/Shows/Shows';
 import ShowDetails from './Components/ShowDetails/ShowDetails';
 import ShowEpisodesDetails from './Components/ShowEpisodesDetails/ShowEpisodesDetails';
+import ShowEpisodesDetailsGuide from './Components/ShowEpisodesDetailsGuide/ShowEpisodesDetailsGuide';
+import ShowGalleryDetails from './Components/ShowGalleryDetails/ShowGalleryDetails';
 import './App.css';
 
 function App() {
@@ -32,6 +34,12 @@ function App() {
               </Route>
               <Route path="/search/show/:id/episodes">
                 <ShowEpisodesDetails />
+              </Route>
+              <Route path="/search/show/:id/episodesguide">
+                <ShowEpisodesDetailsGuide />
+              </Route>
+              <Route path="/search/show/:id/gallery">
+                <ShowGalleryDetails />
               </Route>
             </Switch>
           </section>
