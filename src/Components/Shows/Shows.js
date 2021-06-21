@@ -3,7 +3,7 @@ import './Shows.css';
 function Shows() {
   return (
     <>
-      <section className="Shows__container">
+      <section className="shows__container">
         <div className="container">Welcome in Shows</div>
       </section>
     </>

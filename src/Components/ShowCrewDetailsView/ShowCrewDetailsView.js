@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import Ads from '../Ads/Ads';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import placeholder from '../../assets/images/placeholder.jpg';
-import { Link } from 'react-router-dom';
 import './ShowCrewDetailsView.css';
 
 function ShowCrewDetailsView({ basic, crew }) {
@@ -27,7 +27,7 @@ function ShowCrewDetailsView({ basic, crew }) {
                   <Link to="">
                     <h2>{person.name}</h2>
                   </Link>
-                  <h3>{`as ${type}`}</h3>
+                  <h3>{type}</h3>
                 </div>
               </div>
             );

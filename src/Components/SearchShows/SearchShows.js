@@ -3,13 +3,17 @@ import { useParams } from 'react-router';
 import { searchShowByQuery } from '../Requests/Requests';
 import SingleShowSearchCard from '../SingleShowSearchCard/SingleShowSearchCard';
 import Ads from '../Ads/Ads';
+import Loader from '../Loader/Loader';
 import './SearchShows.css';
 
 function SearchShows() {
+  const [isLoading, setLoadingState] = useState(true);
   const [searchList, setSearchListContent] = useState([]);
   const { query } = useParams();
 
   useEffect(() => {
+    setLoadingState(true);
+
     searchShowByQuery(query).then((searchQueryResults) => {
       const { data } = searchQueryResults;
 
@@ -18,6 +22,7 @@ function SearchShows() {
       }
 
       setSearchListContent(data);
+      setLoadingState(false);
 
       // for (const key of data) {
       //   const { show } = key;
@@ -35,11 +40,16 @@ function SearchShows() {
             Searching shows by: <span>{query}</span>
           </h1>
           <div className="search-shows">
-            <div className="search-shows__display">
-              {searchList.map((data) => (
-                <SingleShowSearchCard key={data.show.id} data={data.show} id={data.id} />
-              ))}
-            </div>{' '}
+            {!isLoading ? (
+              <div className="search-shows__display">
+                {searchList.map((data) => (
+                  <SingleShowSearchCard key={data.show.id} data={data.show} id={data.id} />
+                ))}
+              </div>
+            ) : (
+              <Loader />
+            )}
+
             <aside>
               <Ads />
             </aside>

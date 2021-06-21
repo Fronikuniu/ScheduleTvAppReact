@@ -1,7 +1,7 @@
-import Ads from '../Ads/Ads';
 import { Link } from 'react-router-dom';
-import placeholder from '../../assets/images/placeholder.jpg';
+import Ads from '../Ads/Ads';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
+import placeholder from '../../assets/images/placeholder.jpg';
 import './ShowDetailsView.css';
 
 function ShowDetailsView({ basic, episodes, seasons }) {

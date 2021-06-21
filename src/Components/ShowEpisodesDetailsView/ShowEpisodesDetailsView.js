@@ -1,5 +1,5 @@
-import Ads from '../Ads/Ads';
 import { Link } from 'react-router-dom';
+import Ads from '../Ads/Ads';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import './ShowEpisodesDetailsView.css';
 
