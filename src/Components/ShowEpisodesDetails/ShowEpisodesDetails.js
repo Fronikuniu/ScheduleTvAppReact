@@ -19,8 +19,6 @@ function ShowEpisodesDetails() {
     getShowDetailsInfo();
   }, [id]);
 
-  console.log(showEpisodesDetailsInfo);
-
   return (
     <>
       <section className="show-details__container">

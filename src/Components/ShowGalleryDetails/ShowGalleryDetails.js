@@ -15,7 +15,6 @@ function ShowGalleryDetails() {
       const data = await getShowsInfoById(id);
 
       galleryTab.push(data);
-      console.log(galleryTab);
       setGalleryView(galleryTab);
     };
     getGalleryById();

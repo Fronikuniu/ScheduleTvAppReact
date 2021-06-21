@@ -1,0 +1,37 @@
+.show-cast-details-view__display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cast-person-card {
+  display: flex;
+  margin: 0 25px 25px 0;
+}
+
+.cast-person__text {
+  padding: 0.5rem;
+  width: 227px;
+}
+
+.cast-person__text a {
+  color: tomato;
+}
+
+.cast-person__text a:hover {
+  text-decoration: underline;
+}
+
+.cast-person__text h2 {
+  font-weight: normal;
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+
+.cast-person__text h3 {
+  font-weight: normal;
+  font-size: 1em;
+}
+
+.cast-person-img {
+  width: 140px;
+}

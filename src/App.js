@@ -7,7 +7,9 @@ import ShowDetails from './Components/ShowDetails/ShowDetails';
 import ShowEpisodesDetails from './Components/ShowEpisodesDetails/ShowEpisodesDetails';
 import ShowEpisodesDetailsGuide from './Components/ShowEpisodesDetailsGuide/ShowEpisodesDetailsGuide';
 import ShowGalleryDetails from './Components/ShowGalleryDetails/ShowGalleryDetails';
+import ShowCastDetails from './Components/ShowCastDetails/ShowCastDetails';
 import './App.css';
+import ShowCrewDetails from './Components/ShowCrewDetails/ShowCrewDetails';
 
 function App() {
   return (
@@ -37,6 +39,12 @@ function App() {
               </Route>
               <Route path="/search/show/:id/episodesguide">
                 <ShowEpisodesDetailsGuide />
+              </Route>
+              <Route path="/search/show/:id/cast">
+                <ShowCastDetails />
+              </Route>
+              <Route path="/search/show/:id/crew">
+                <ShowCrewDetails />
               </Route>
               <Route path="/search/show/:id/gallery">
                 <ShowGalleryDetails />

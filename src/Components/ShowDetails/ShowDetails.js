@@ -19,8 +19,6 @@ function ShowDetails() {
     getShowDetailsInfo();
   }, [id]);
 
-  console.log(showDetailsInfo);
-
   return (
     <>
       <section className="show-details__container">
