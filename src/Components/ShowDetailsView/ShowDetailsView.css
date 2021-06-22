@@ -83,3 +83,31 @@
 .star {
   font-size: 2rem;
 }
+
+.show-details-view__cast {
+  margin-top: 50px;
+}
+
+.show-details-view__cast > div > h2 {
+  margin: 15px 0 15px 0;
+}
+
+.button-of-full-view {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 30px;
+  background-color: white;
+  border: 1px solid tomato;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+  color: tomato;
+  transition: color 0.3s, background-color 0.3s;
+  margin-bottom: 40px;
+}
+
+.button-of-full-view:hover {
+  background-color: tomato;
+  color: white;
+}

@@ -3,8 +3,10 @@ import Ads from '../Ads/Ads';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import placeholder from '../../assets/images/placeholder.jpg';
 import './ShowDetailsView.css';
+import ShowCastDetailsView from '../ShowCastDetailsView/ShowCastDetailsView';
+import ShowEpisodesDetailsView from '../ShowEpisodesDetailsView/ShowEpisodesDetailsView';
 
-function ShowDetailsView({ basic, episodes, seasons }) {
+function ShowDetailsView({ basic, episodes, cast, seasons }) {
   function createMarkup() {
     return { __html: basic.summary };
   }
@@ -26,7 +28,26 @@ function ShowDetailsView({ basic, episodes, seasons }) {
           <div className="show-details-view__text" dangerouslySetInnerHTML={createMarkup()}></div>
         </div>
 
-        <div className="show-details-view__basic-episodes"></div>
+        <div className="show-details-view__cast">
+          <div>
+            <ShowEpisodesDetailsView basic={basic} episodes={episodes} seasons={seasons} />
+            <Link to={`/search/show/${basic.id}/episodes`}>
+              <button className="button-of-full-view">
+                Show full episodes list <span class="material-icons-round">double_arrow</span>{' '}
+              </button>
+            </Link>
+          </div>
+
+          <div>
+            <h2>Cast</h2>
+            <ShowCastDetailsView basic={basic} cast={cast} />
+            <Link to={`/search/show/${basic.id}/cast`}>
+              <button className="button-of-full-view">
+                Show full cast list <span class="material-icons-round">double_arrow</span>{' '}
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
 
       <aside className="show-details-view__aside">

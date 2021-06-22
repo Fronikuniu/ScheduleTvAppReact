@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getShowsInfoById } from '../Requests/Requests';
+import { Link } from 'react-router-dom';
 import ShowEpisodesDetailsView from '../ShowEpisodesDetailsView/ShowEpisodesDetailsView';
+import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import Loader from '../Loader/Loader';
+import Ads from '../Ads/Ads';
 import './ShowEpisodesDetails.css';
 
 function ShowEpisodesDetails() {
@@ -31,7 +34,37 @@ function ShowEpisodesDetails() {
         {!isLoading ? (
           <div className="container">
             {showEpisodesDetailsInfo.map(({ basic, episodes, seasons }) => (
-              <ShowEpisodesDetailsView key={basic.id} basic={basic} episodes={episodes} seasons={seasons} />
+              <>
+                <div className="show-details-view">
+                  <h1>{basic.name} - Episodes list</h1>
+                  <ShowDetailsViewMenu basic={basic} />
+
+                  <div className="show-episodes-details-view__display">
+                    <div className="show-episodes-details-view__display-seasons">
+                      <h2>Seasons</h2>
+                      <div className="seasons-data">
+                        {seasons.map((season) => {
+                          return (
+                            <Link to="" key={season.id}>
+                              {season.number < 10 ? `S0${season.number}` : `S${season.number}`}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <ShowEpisodesDetailsView key={basic.id} basic={basic} episodes={episodes} seasons={seasons} />
+                  </div>
+                </div>
+                <aside className="show-details-view__aside">
+                  <Link to={`/search/show/${basic.id}/episodesguide`}>
+                    <button className="change-episode__list__guide">
+                      <span className="material-icons-outlined">explore</span> Episodes Guide
+                    </button>
+                  </Link>
+
+                  <Ads />
+                </aside>
+              </>
             ))}
           </div>
         ) : (

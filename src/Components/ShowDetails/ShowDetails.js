@@ -25,13 +25,15 @@ function ShowDetails() {
     setLoadingState(false);
   }, [id]);
 
+  console.log(showDetailsInfo);
+
   return (
     <>
       <section className="show-details__container">
         {!isLoading ? (
           <div className="container">
-            {showDetailsInfo.map(({ basic, episodes, seasons }) => (
-              <ShowDetailsView key={basic.id} basic={basic} episodes={episodes} seasons={seasons} />
+            {showDetailsInfo.map(({ basic, episodes, cast, seasons }) => (
+              <ShowDetailsView key={basic.id} basic={basic} episodes={episodes.slice(-4)} cast={cast.slice(0, 4)} seasons={seasons} />
             ))}
           </div>
         ) : (
