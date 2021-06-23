@@ -31,20 +31,18 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
         <div className="details-view__cast">
           <div>
             <ShowEpisodesDetailsView basic={basic} episodes={episodes} seasons={seasons} />
-            <Link to={`/search/show/${basic.id}/episodes`}>
-              <button className="button-of-full-view">
-                Show full episodes list <span className="material-icons-round">double_arrow</span>{' '}
-              </button>
+
+            <Link to={`/search/show/${basic.id}/episodes`} className="button-of-full-view">
+              Show full episodes list <span className="material-icons-round">double_arrow</span>{' '}
             </Link>
           </div>
 
           <div>
             <h2>Cast</h2>
             <ShowCastDetailsView basic={basic} cast={cast} />
-            <Link to={`/search/show/${basic.id}/cast`}>
-              <button className="button-of-full-view">
-                Show full cast list <span className="material-icons-round">double_arrow</span>{' '}
-              </button>
+
+            <Link to={`/search/show/${basic.id}/cast`} className="button-of-full-view">
+              Show full cast list <span className="material-icons-round">double_arrow</span>{' '}
             </Link>
           </div>
         </div>
