@@ -16,7 +16,7 @@ function ShowCastDetailsView({ basic, cast }) {
                 className="cast-person-img"
               />
               <div className="cast-person__text">
-                <Link to="">
+                <Link to={`/search/people/${person.id}`}>
                   <h2>{person.name}</h2>
                 </Link>
                 <h3>{`As ${character.name}`}</h3>

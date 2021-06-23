@@ -1,0 +1,7 @@
+.details__container {
+  width: 100%;
+}
+
+.details__container .container {
+  display: flex;
+}

@@ -30,9 +30,9 @@ function ShowGalleryDetails() {
     <>
       {galleryView.map(({ basic, images }) => {
         return (
-          <section key={basic.id} className="show-details__container">
+          <section key={basic.id} className="details__container">
             <div className="container">
-              <div className="show-details-view">
+              <div className="details-view">
                 <h1>{basic.name} - Gallery</h1>
                 <ShowDetailsViewMenu basic={basic} />
 
@@ -59,7 +59,7 @@ function ShowGalleryDetails() {
                 )}
               </div>
 
-              <aside className="show-details-view__aside">
+              <aside className="details-view__aside">
                 <Ads />
               </aside>
             </div>

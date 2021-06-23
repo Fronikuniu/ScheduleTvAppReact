@@ -29,7 +29,7 @@ function ShowCrewDetails() {
 
   return (
     <>
-      <section className="show-details__container">
+      <section className="details__container">
         {!isLoading ? (
           <div className="container">
             {crewDetails.map(({ basic, crew }) => {

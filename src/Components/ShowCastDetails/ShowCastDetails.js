@@ -29,18 +29,18 @@ function ShowCastDetails() {
 
   return (
     <>
-      <section className="show-details__container">
+      <section className="details__container">
         {!isLoading ? (
           <div className="container">
             {castDetails.map(({ basic, cast }) => {
               return (
-                <div className="show-cast-content">
-                  <div className="show-details-view">
+                <div key={basic.id} className="show-cast-content">
+                  <div className="details-view">
                     <h1>{basic.name} - Cast</h1>
                     <ShowDetailsViewMenu basic={basic} />
                     <ShowCastDetailsView key={basic.id} basic={basic} cast={cast} />
                   </div>
-                  <aside className="show-details-view__aside">
+                  <aside className="details-view__aside">
                     <Ads />
                   </aside>
                 </div>

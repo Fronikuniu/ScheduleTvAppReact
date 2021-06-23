@@ -8,9 +8,10 @@ import ShowEpisodesDetails from './Components/ShowEpisodesDetails/ShowEpisodesDe
 import ShowEpisodesDetailsGuide from './Components/ShowEpisodesDetailsGuide/ShowEpisodesDetailsGuide';
 import ShowGalleryDetails from './Components/ShowGalleryDetails/ShowGalleryDetails';
 import ShowCastDetails from './Components/ShowCastDetails/ShowCastDetails';
-import './App.css';
+import PeopleDetails from './Components/PeopleDetails/PeopleDetails';
 import ShowCrewDetails from './Components/ShowCrewDetails/ShowCrewDetails';
-
+import PeopleGalleryDetails from './Components/PeopleGalleryDetails/PeopleGalleryDetails';
+import './App.css';
 function App() {
   return (
     <>
@@ -24,12 +25,14 @@ function App() {
             </Route>
             <Route path="/People"></Route>
             <Route path="/Schedule"></Route>
+
             <Route path="/search/shows=:query">
               <SearchShows />
             </Route>
             <Route path="/search/people=:name">
               <SearchPeople />
             </Route>
+
             <Route exact path="/search/show/:id">
               <ShowDetails />
             </Route>
@@ -47,6 +50,13 @@ function App() {
             </Route>
             <Route path="/search/show/:id/gallery">
               <ShowGalleryDetails />
+            </Route>
+
+            <Route exact path="/search/people/:id">
+              <PeopleDetails />
+            </Route>
+            <Route path="/search/people/:id/gallery">
+              <PeopleGalleryDetails />
             </Route>
           </Switch>
         </main>

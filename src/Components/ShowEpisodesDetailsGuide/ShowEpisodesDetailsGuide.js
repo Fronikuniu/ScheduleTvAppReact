@@ -32,9 +32,9 @@ function ShowEpisodesDetailsGuide() {
     <>
       {episodesListGuide.map(({ basic, episodes }) => {
         return (
-          <section key={basic.id} className="show-details__container">
+          <section key={basic.id} className="details__container">
             <div className="container">
-              <div className="show-details-view">
+              <div className="details-view">
                 <h1>{basic.name} - Episodes Guide</h1>
                 <ShowDetailsViewMenu basic={basic} />
 
@@ -77,7 +77,7 @@ function ShowEpisodesDetailsGuide() {
                 )}
               </div>
 
-              <aside className="show-details-view__aside">
+              <aside className="details-view__aside">
                 <Link to={`/search/show/${basic.id}/episodes`}>
                   <button className="change-episode__list__guide">
                     <span className="material-icons">list</span> Episodes List

@@ -9,7 +9,7 @@ function ShowCrewDetailsView({ basic, crew }) {
 
   return (
     <>
-      <div className="show-details-view">
+      <div className="details-view">
         <h1>{basic.name} - Cast</h1>
         <ShowDetailsViewMenu basic={basic} />
 
@@ -24,7 +24,7 @@ function ShowCrewDetailsView({ basic, crew }) {
                   className="cast-person-img"
                 />
                 <div className="cast-person__text">
-                  <Link to="">
+                  <Link to={`/search/people/${person.id}`}>
                     <h2>{person.name}</h2>
                   </Link>
                   <h3>{type}</h3>
@@ -35,7 +35,7 @@ function ShowCrewDetailsView({ basic, crew }) {
         </div>
       </div>
 
-      <aside className="show-details-view__aside">
+      <aside className="details-view__aside">
         <Ads />
       </aside>
     </>

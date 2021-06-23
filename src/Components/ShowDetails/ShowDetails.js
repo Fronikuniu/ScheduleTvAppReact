@@ -25,11 +25,9 @@ function ShowDetails() {
     setLoadingState(false);
   }, [id]);
 
-  console.log(showDetailsInfo);
-
   return (
     <>
-      <section className="show-details__container">
+      <section className="details__container">
         {!isLoading ? (
           <div className="container">
             {showDetailsInfo.map(({ basic, episodes, cast, seasons }) => (

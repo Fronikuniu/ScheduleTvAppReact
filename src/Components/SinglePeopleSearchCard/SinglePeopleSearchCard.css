@@ -21,11 +21,13 @@
   flex-direction: column;
 }
 
+.single-people-card__image a {
+  height: 85.5%;
+}
+
 .single-people-card__follow {
   background-color: tomato;
-  height: 2.3rem;
-  position: relative;
-  bottom: 1px;
+  height: 100%;
 }
 
 .single-people-card__follow a {

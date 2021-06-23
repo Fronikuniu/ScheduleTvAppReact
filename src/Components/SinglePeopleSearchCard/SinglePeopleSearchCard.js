@@ -19,7 +19,7 @@ function SinglePeopleSearchCard({ data }) {
         </div>
         <div className="single-people-card__text">
           <h1>
-            <Link to="">{data.name}</Link> <span>{data.birthday != null ? data.birthday : ''}</span>
+            <Link to={`/search/people/${data.id}`}>{data.name}</Link> <span>{data.birthday != null ? data.birthday : ''}</span>
           </h1>
         </div>
       </div>

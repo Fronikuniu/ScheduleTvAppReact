@@ -30,12 +30,12 @@ function ShowEpisodesDetails() {
 
   return (
     <>
-      <section className="show-details__container">
+      <section className="details__container">
         {!isLoading ? (
-          <div className="container">
+          <>
             {showEpisodesDetailsInfo.map(({ basic, episodes, seasons }) => (
-              <>
-                <div className="show-details-view">
+              <div key={basic.id} className="container">
+                <div className="details-view">
                   <h1>{basic.name} - Episodes list</h1>
                   <ShowDetailsViewMenu basic={basic} />
 
@@ -55,7 +55,7 @@ function ShowEpisodesDetails() {
                     <ShowEpisodesDetailsView key={basic.id} basic={basic} episodes={episodes} seasons={seasons} />
                   </div>
                 </div>
-                <aside className="show-details-view__aside">
+                <aside className="details-view__aside">
                   <Link to={`/search/show/${basic.id}/episodesguide`}>
                     <button className="change-episode__list__guide">
                       <span className="material-icons-outlined">explore</span> Episodes Guide
@@ -64,9 +64,9 @@ function ShowEpisodesDetails() {
 
                   <Ads />
                 </aside>
-              </>
+              </div>
             ))}
-          </div>
+          </>
         ) : (
           <Loader />
         )}

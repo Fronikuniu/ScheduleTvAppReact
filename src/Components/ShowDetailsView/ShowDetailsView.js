@@ -13,11 +13,11 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
 
   return (
     <>
-      <div className="show-details-view">
+      <div className="details-view">
         <h1>{basic.name}</h1>
         <ShowDetailsViewMenu basic={basic} />
 
-        <div className="show-details-view__display">
+        <div className="details-view__display">
           <div className="view">
             <img src={basic.image != null ? basic.image.medium : placeholder} alt={basic.name} />
             <div className="view__follow">
@@ -25,15 +25,15 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
               <span> Follow</span>
             </div>
           </div>
-          <div className="show-details-view__text" dangerouslySetInnerHTML={createMarkup()}></div>
+          <div className="details-view__text" dangerouslySetInnerHTML={createMarkup()}></div>
         </div>
 
-        <div className="show-details-view__cast">
+        <div className="details-view__cast">
           <div>
             <ShowEpisodesDetailsView basic={basic} episodes={episodes} seasons={seasons} />
             <Link to={`/search/show/${basic.id}/episodes`}>
               <button className="button-of-full-view">
-                Show full episodes list <span class="material-icons-round">double_arrow</span>{' '}
+                Show full episodes list <span className="material-icons-round">double_arrow</span>{' '}
               </button>
             </Link>
           </div>
@@ -43,15 +43,15 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
             <ShowCastDetailsView basic={basic} cast={cast} />
             <Link to={`/search/show/${basic.id}/cast`}>
               <button className="button-of-full-view">
-                Show full cast list <span class="material-icons-round">double_arrow</span>{' '}
+                Show full cast list <span className="material-icons-round">double_arrow</span>{' '}
               </button>
             </Link>
           </div>
         </div>
       </div>
 
-      <aside className="show-details-view__aside">
-        <div className="show-details-view__aside__info">
+      <aside className="details-view__aside">
+        <div className="details-view__aside__info">
           <h2>Show Info:</h2>
           <h3>
             Network:{' '}
@@ -78,7 +78,14 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
             Premiered: <span>{basic.premiered}</span>
           </h3>
           <h3>
-            Schedule: <span>{basic.schedule != null ? `${basic.schedule.days} at ${basic.schedule.time} (${basic.runtime}min)` : ''}</span>
+            Schedule:{' '}
+            <span>
+              {basic.schedule != null
+                ? `${basic.schedule.days.map((day) => {
+                    return `${day} `;
+                  })} at ${basic.schedule.time} (${basic.runtime}min)`
+                : ''}
+            </span>
           </h3>
           <h3>
             Status: <span>{basic.status}</span>
@@ -97,7 +104,7 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
           <h3>
             Language: <span>{basic.language}</span>
           </h3>
-          <h3 className="show-details-view__aside__rating">
+          <h3 className="details-view__aside__rating">
             <i className="material-icons-round star">star_border</i>
             Rating: {basic.rating != null ? basic.rating.average : ''}
           </h3>
