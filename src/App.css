@@ -4,6 +4,16 @@ body {
   font-family: 'Baloo 2', cursive;
 }
 
+/* Hide scroll but scroll isn't disabled */
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
 .container {
   width: 1120px;
   height: 100%;

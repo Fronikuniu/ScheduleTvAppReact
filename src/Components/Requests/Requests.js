@@ -31,3 +31,7 @@ export const getPeopleInfoById = (id) => {
 export const getScheduleByCurrentDate = (date) => {
   return axios.get(`http://api.tvmaze.com/schedule?country=PL&date=${date}`);
 };
+
+export const getShows = () => {
+  return axios.get(`http://api.tvmaze.com/shows`);
+};

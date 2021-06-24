@@ -1,0 +1,8 @@
+.show-container .container h1 {
+  margin-bottom: 30px;
+}
+
+.shows-display {
+  display: flex;
+  flex-wrap: wrap;
+}
