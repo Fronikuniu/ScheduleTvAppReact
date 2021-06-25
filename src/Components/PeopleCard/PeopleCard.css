@@ -1,0 +1,15 @@
+.people-favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+}
+
+.people-favorite a {
+  color: rgba(255, 255, 255, 0.637);
+  transition: all 0.2s;
+}
+
+.people-favorite a:hover {
+  color: rgba(255, 255, 255, 0.877);
+}

@@ -10,7 +10,7 @@ function ShowCrewDetailsView({ basic, crew }) {
   return (
     <>
       <div className="details-view">
-        <h1>{basic.name} - Cast</h1>
+        <h1>{basic.name} - Crew</h1>
         <ShowDetailsViewMenu basic={basic} />
 
         <div className="show-cast-details-view__display">

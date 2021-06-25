@@ -22,10 +22,10 @@ function Shows() {
 
   return (
     <>
-      <section className="show-container">
+      <section className="show-people-container">
         <div className="container">
           <h1>Shows</h1>
-          <div className="shows-display">
+          <div className="shows-people-display">
             {showsList.slice(0, 25).map((show) => {
               return <ShowsCard show={show} />;
             })}

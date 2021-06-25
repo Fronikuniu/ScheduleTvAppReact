@@ -1,8 +1,8 @@
-.show-container .container h1 {
-  margin-bottom: 30px;
+.show-people-container .container h1 {
+  margin-bottom: 20px;
 }
 
-.shows-display {
+.shows-people-display {
   display: flex;
   flex-wrap: wrap;
 }

@@ -11,7 +11,9 @@ import ShowCastDetails from './Components/ShowCastDetails/ShowCastDetails';
 import PeopleDetails from './Components/PeopleDetails/PeopleDetails';
 import ShowCrewDetails from './Components/ShowCrewDetails/ShowCrewDetails';
 import PeopleGalleryDetails from './Components/PeopleGalleryDetails/PeopleGalleryDetails';
+import People from './Components/People/People';
 import './App.css';
+
 function App() {
   return (
     <>
@@ -23,7 +25,9 @@ function App() {
             <Route path="/Shows">
               <Shows />
             </Route>
-            <Route path="/People"></Route>
+            <Route path="/People">
+              <People />
+            </Route>
             <Route path="/Schedule"></Route>
 
             <Route path="/search/shows=:query">

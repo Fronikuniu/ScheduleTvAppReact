@@ -1,24 +1,24 @@
-.shows-card {
+.shows-people-card {
   width: 170px;
   background-color: tomato;
   margin-bottom: 40px;
   margin-right: 54px;
 }
 
-.shows-text {
+.shows-people-text {
   padding: 0.6rem;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.692);
 }
 
-.shows-text a {
+.shows-people-text a {
   color: rgba(255, 255, 255, 0.637);
   transition: all 0.2s;
   width: 100%;
   height: 100%;
 }
 
-.shows-text a:hover,
+.shows-people-text a:hover,
 .shows-favorite-rating a:hover,
 .shows-rating:hover,
 .shows-rating i:hover {
@@ -39,6 +39,10 @@
   color: rgba(255, 255, 255, 0.637);
   font-size: 1.45em;
   transition: all 0.2s;
+}
+
+.shows-rating {
+  cursor: pointer;
 }
 
 .shows-rating i {
