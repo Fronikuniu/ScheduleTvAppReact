@@ -1,33 +1,47 @@
 import { useEffect, useState } from 'react';
 import { getPeopleInfoById } from '../Requests/Requests';
 import PeopleCard from '../PeopleCard/PeopleCard';
+import Loader from '../Loader/Loader';
 import './People.css';
 
 function People() {
-  const [peopleList, setPeopleList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]);
   const [peopleListInfo, setPeopleListInfo] = useState([]);
+  let [peopleList, setPeopleList] = useState([]);
+  const [isLoading, setLoadingState] = useState(true);
 
   useEffect(() => {
-    let idNumber;
-    const idTab = [];
+    setLoadingState(true);
 
-    for (let i = 0; i < 25; i++) {
-      idNumber = Math.floor(Math.random() * (10000 - 0 + 1)) + 0;
-      idTab.push(idNumber);
-    }
-    setPeopleList(idTab);
+    const generateRandomIds = () => {
+      let idNumber;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      peopleList = [];
+
+      for (let i = 0; i < 25; i++) {
+        idNumber = Math.floor(Math.random() * (10000 - 0 + 1)) + 0;
+        peopleList.push(idNumber);
+      }
+      setPeopleList(peopleList);
+    };
+    generateRandomIds();
 
     const getPeopleInfo = async () => {
       let persons = [];
 
       for (const personId of peopleList) {
-        const { data } = await getPeopleInfoById(personId);
-        persons.push(data);
+        await getPeopleInfoById(personId)
+          .then((response) => {
+            const { data } = response;
+            persons.push(data);
+          })
+          .catch((error) => {});
       }
 
       setPeopleListInfo(persons);
     };
     getPeopleInfo();
+
+    setLoadingState(false);
   }, []);
 
   console.log(peopleList);
@@ -38,11 +52,15 @@ function People() {
       <section className="show-people-container">
         <div className="container">
           <h1>People</h1>
-          <div className="shows-people-display">
-            {peopleListInfo.map((people) => {
-              return <PeopleCard people={people} />;
-            })}
-          </div>
+          {!isLoading ? (
+            <div className="shows-people-display">
+              {peopleListInfo.map((people) => {
+                return <PeopleCard key={people.id} people={people} />;
+              })}
+            </div>
+          ) : (
+            <Loader />
+          )}
         </div>
       </section>
     </>

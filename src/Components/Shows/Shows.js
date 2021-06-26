@@ -27,7 +27,7 @@ function Shows() {
           <h1>Shows</h1>
           <div className="shows-people-display">
             {showsList.slice(0, 25).map((show) => {
-              return <ShowsCard show={show} />;
+              return <ShowsCard key={show.id} show={show} />;
             })}
           </div>
         </div>
