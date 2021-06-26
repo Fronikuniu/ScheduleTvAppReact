@@ -6,16 +6,16 @@
 }
 
 .shows-people-text {
+  display: flex;
+  align-items: center;
   padding: 0.6rem;
-  text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.692);
+  height: 57px;
 }
 
 .shows-people-text a {
   color: rgba(255, 255, 255, 0.637);
   transition: all 0.2s;
-  width: 100%;
-  height: 100%;
 }
 
 .shows-people-text a:hover,

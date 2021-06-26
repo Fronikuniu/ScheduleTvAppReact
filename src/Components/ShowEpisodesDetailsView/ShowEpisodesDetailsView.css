@@ -97,23 +97,3 @@
 .episodes-data-item a:hover {
   text-decoration: underline;
 }
-
-.change-episode__list__guide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.change-episode__list__guide {
-  border: 1px solid lightgray;
-  background-color: tomato;
-  padding: 0.7rem;
-  border-radius: 20px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
-
-.change-episode__list__guide:hover {
-  background-color: rgb(223, 66, 39);
-}

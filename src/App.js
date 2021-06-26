@@ -12,6 +12,7 @@ import PeopleDetails from './Components/PeopleDetails/PeopleDetails';
 import ShowCrewDetails from './Components/ShowCrewDetails/ShowCrewDetails';
 import PeopleGalleryDetails from './Components/PeopleGalleryDetails/PeopleGalleryDetails';
 import People from './Components/People/People';
+import Home from './Components/Home/Home';
 import './App.css';
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
         <Nav />
         <main className="content">
           <Switch>
-            <Route exact path="/"></Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route path="/Shows">
               <Shows />
             </Route>

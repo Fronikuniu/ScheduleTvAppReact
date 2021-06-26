@@ -68,3 +68,22 @@ i {
   display: flex;
   align-items: center;
 }
+
+.button-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid tomato;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 20px;
+  font-weight: bold;
+  color: tomato;
+  cursor: pointer;
+  transition: color 0.4s, background-color 0.4s;
+}
+
+.button-primary:hover {
+  background-color: tomato;
+  color: white;
+}

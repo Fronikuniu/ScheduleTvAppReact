@@ -79,7 +79,7 @@ function ShowEpisodesDetailsGuide() {
 
               <aside className="details-view__aside">
                 <Link to={`/search/show/${basic.id}/episodes`}>
-                  <button className="change-episode__list__guide">
+                  <button className="button-primary">
                     <span className="material-icons">list</span> Episodes List
                   </button>
                 </Link>
