@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import placeholder from '../../assets/images/placeholder.jpg';
+import placeholder_female from '../../assets/images/placeholder_female.jpg';
+import placeholder_male from '../../assets/images/placeholder_male.jpg';
 import './PeopleCard.css';
 
 function PeopleCard({ people }) {
@@ -7,7 +9,19 @@ function PeopleCard({ people }) {
     <>
       <div className="shows-people-card">
         <Link to={`/search/show/${people.id}`}>
-          <img className="card" src={people.image != null ? people.image.medium : placeholder} alt={people.name} />
+          <img
+            className="card"
+            src={
+              people.image != null
+                ? people.image.medium
+                : people.gender === 'Female'
+                ? placeholder_female
+                : people.gender === 'Male'
+                ? placeholder_male
+                : placeholder
+            }
+            alt={people.name}
+          />
         </Link>
 
         <div className="shows-people-text">

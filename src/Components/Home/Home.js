@@ -1,36 +1,123 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getShowsInfoById, getPeopleInfoById } from '../Requests/Requests';
+import ShowsCard from '../ShowsCard/ShowsCard';
+import PeopleCard from '../PeopleCard/PeopleCard';
+import Loader from '../Loader/Loader';
 import './Home.css';
 
 function Home() {
+  const date = new Date();
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear();
+
+  const [currentData] = useState([`${day}-${month}-${year}`]);
+  const [isLoading, setLoadingState] = useState(true);
+
+  let [showsListOfIds, setShowsListOfIds] = useState([]);
+  const [showsDataOfIds, setShowsDataOfIds] = useState([]);
+
+  let [peopleListOfIds, setPeopleListOfIds] = useState([]);
+  const [peopleDataOfIds, setPeopleDataOfIds] = useState([]);
+
+  useEffect(() => {
+    setLoadingState(true);
+
+    const generateRandomIds = () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      showsListOfIds = [];
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      peopleListOfIds = [];
+      let idShowNumber;
+      let idPeopleNumber;
+
+      for (let i = 0; i < 5; i++) {
+        idShowNumber = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
+        showsListOfIds.push(idShowNumber);
+      }
+      setShowsListOfIds(showsListOfIds);
+
+      for (let i = 0; i < 5; i++) {
+        idPeopleNumber = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
+        peopleListOfIds.push(idPeopleNumber);
+      }
+      setPeopleListOfIds(peopleListOfIds);
+    };
+    generateRandomIds();
+
+    const getPeopleAndShowsInfo = async () => {
+      const shows = [];
+      for (const showId of showsListOfIds) {
+        await getShowsInfoById(showId)
+          .then((response) => {
+            const { basic } = response;
+            shows.push(basic);
+          })
+          .catch((error) => {});
+      }
+      setShowsDataOfIds(shows);
+
+      const people = [];
+      for (const peopleId of peopleListOfIds) {
+        await getPeopleInfoById(peopleId)
+          .then((response) => {
+            const { data } = response;
+            people.push(data);
+          })
+          .catch((error) => {});
+      }
+      setPeopleDataOfIds(people);
+    };
+    getPeopleAndShowsInfo();
+
+    setLoadingState(false);
+  }, [currentData]);
+
+  console.log(showsDataOfIds);
+  console.log(peopleDataOfIds);
+
   return (
     <>
       <div className="container">
-        <div className="popular-shows">
-          <h1>Popular shows today!</h1>
-          <div className="popular-shows-display"></div>
+        {!isLoading ? (
+          <>
+            <div className="popular-shows">
+              <h1>Popular shows!</h1>
+              <div className="popular-shows-display">
+                {showsDataOfIds.map((show) => {
+                  return <ShowsCard key={show.id} show={show} />;
+                })}
+              </div>
 
-          <Link to="" className="button-of-full-view">
-            More shows! <span className="material-icons-round">double_arrow</span>
-          </Link>
-        </div>
+              <Link to="/Shows" className="button-of-full-view">
+                More shows! <span className="material-icons-round">double_arrow</span>
+              </Link>
+            </div>
+            <div className="popular-stars">
+              <h1>Popular stars!</h1>
+              <div className="popular-stars-display">
+                {peopleDataOfIds.map((people) => {
+                  return <PeopleCard key={people.id} people={people} />;
+                })}
+              </div>
 
-        <div className="popular-stars">
-          <h1>Popular stars!</h1>
-          <div className="popular-stars-display"></div>
+              <Link to="/People" className="button-of-full-view">
+                More stars! <span className="material-icons-round">double_arrow</span>
+              </Link>
+            </div>
+            <div className="schedule">
+              <h1>Schedule for today!</h1>
+              <div className="schedule-display"></div>
 
-          <Link to="" className="button-of-full-view">
-            More stars! <span className="material-icons-round">double_arrow</span>
-          </Link>
-        </div>
-
-        <div className="schedule">
-          <h1>Schedule for today!</h1>
-          <div className="schedule-display"></div>
-
-          <Link to="" className="button-of-full-view">
-            Full schedule! <span className="material-icons-round">double_arrow</span>
-          </Link>
-        </div>
+              <Link to="" className="button-of-full-view">
+                Full schedule! <span className="material-icons-round">double_arrow</span>
+              </Link>
+            </div>{' '}
+          </>
+        ) : (
+          <Loader />
+        )}
       </div>
     </>
   );

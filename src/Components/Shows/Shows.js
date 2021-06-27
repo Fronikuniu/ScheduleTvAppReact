@@ -7,15 +7,12 @@ function Shows() {
   const [showsList, setShowsList] = useState([]);
 
   useEffect(() => {
-    getShows().then((showsListResults) => {
-      const { data } = showsListResults;
-
-      if (data.error) {
-        return;
-      }
-
-      setShowsList(data);
-    });
+    getShows()
+      .then((showsListResults) => {
+        const { data } = showsListResults;
+        setShowsList(data);
+      })
+      .catch((error) => {});
   }, []);
 
   console.log(showsList);

@@ -1,0 +1,9 @@
+.popular-shows h1,
+.popular-people h1 {
+  margin-bottom: 20px;
+}
+
+.popular-shows-display,
+.popular-stars-display {
+  display: flex;
+}
