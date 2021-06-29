@@ -17,66 +17,48 @@ function Home() {
   const [currentData] = useState(`${day}-${month}-${year}`);
   localStorage.setItem('CurrentData', currentData);
   // const data = localStorage.getItem('CurrentData');
-  const data = '29-06-2021';
+  // const data = '30-06-2021';
 
-  let [showsListOfIds, setShowsListOfIds] = useState([1, 2, 3, 4, 5]);
-  localStorage.setItem('localShowsListOfIds', showsListOfIds);
-  const localShowsListOfIds = localStorage.getItem('localShowsListOfIds');
+  let [showsListOfIds, setShowsListOfIds] = useState();
+  // localStorage.setItem('localShowsListOfIds', showsListOfIds);
+  // const localShowsListOfIds = localStorage.getItem('localShowsListOfIds');
   const [showsDataOfIds, setShowsDataOfIds] = useState([]);
 
-  let [peopleListOfIds, setPeopleListOfIds] = useState([1, 2, 3, 4, 5]);
-  localStorage.setItem('localPeopleListOfIds', peopleListOfIds);
-  const localPeopleListOfIds = localStorage.getItem('localPeopleListOfIds');
+  let [peopleListOfIds, setPeopleListOfIds] = useState();
+  // localStorage.setItem('localPeopleListOfIds', peopleListOfIds);
+  // const localPeopleListOfIds = localStorage.getItem('localPeopleListOfIds');
   const [peopleDataOfIds, setPeopleDataOfIds] = useState([]);
 
-  console.log(data);
-  console.log(currentData);
+  // console.log(data);
+  // console.log(currentData);
 
   useEffect(() => {
     setLoadingState(true);
 
-    if (data !== currentData) {
-      const generateRandomIds = () => {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        showsListOfIds = [];
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        peopleListOfIds = [];
-        let idShowNumber;
-        let idPeopleNumber;
-
-        for (let i = 0; i < 5; i++) {
-          idShowNumber = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
-          showsListOfIds.push(idShowNumber);
-        }
-        setShowsListOfIds(showsListOfIds);
-
-        for (let i = 0; i < 5; i++) {
-          idPeopleNumber = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
-          peopleListOfIds.push(idPeopleNumber);
-        }
-        setPeopleListOfIds(peopleListOfIds);
-      };
-      generateRandomIds();
-    } else {
+    const generateRandomIds = () => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
       showsListOfIds = [];
       // eslint-disable-next-line react-hooks/exhaustive-deps
       peopleListOfIds = [];
+      let idShowNumber;
+      let idPeopleNumber;
 
-      //Convert string of numbers to and array of numbers
-      const showsIdFromLocalStorage = localShowsListOfIds.split(',').map((showId) => +showId);
-      for (const showId of showsIdFromLocalStorage) {
-        showsListOfIds.push(showId);
+      for (let i = 0; i < 5; i++) {
+        idShowNumber = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
+        showsListOfIds.push(idShowNumber);
       }
+      setShowsListOfIds(showsListOfIds);
 
-      const peopleIdFromLocalStorage = localPeopleListOfIds.split(',').map((peopleId) => +peopleId);
-      for (const peopleId of peopleIdFromLocalStorage) {
-        peopleListOfIds.push(peopleId);
+      for (let i = 0; i < 5; i++) {
+        idPeopleNumber = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
+        peopleListOfIds.push(idPeopleNumber);
       }
-    }
+      setPeopleListOfIds(peopleListOfIds);
+    };
+    generateRandomIds();
 
-    console.log(showsListOfIds);
-    console.log(peopleListOfIds);
+    // console.log(showsListOfIds);
+    // console.log(peopleListOfIds);
 
     const getPeopleAndShowsInfo = async () => {
       setLoadingState(true);
@@ -106,7 +88,7 @@ function Home() {
     getPeopleAndShowsInfo();
 
     setLoadingState(false);
-  }, [currentData]);
+  }, []);
 
   // console.log(showsDataOfIds);
   // console.log(peopleDataOfIds);
