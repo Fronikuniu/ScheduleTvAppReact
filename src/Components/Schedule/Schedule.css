@@ -1,0 +1,13 @@
+.schedule-container .container h1 {
+  margin-bottom: 20px;
+}
+
+.schedule-container .container h1 span {
+  color: rgb(77, 77, 77);
+  font-size: 0.6em;
+}
+
+.schedule-container .container h1 span span {
+  color: tomato;
+  font-size: 1.2em;
+}

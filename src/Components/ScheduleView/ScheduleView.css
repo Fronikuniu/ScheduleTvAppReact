@@ -1,0 +1,47 @@
+.schedule-card {
+  display: flex;
+  margin-bottom: 20px;
+  width: 1000px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.schedule-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: tomato;
+  width: 60px;
+  height: 60px;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.schedule-text {
+  position: relative;
+  padding: 0.3rem 0.6rem;
+  width: 100%;
+}
+
+.schedule-text h2 {
+  font-size: 1.3em;
+}
+
+.schedule-text h3 {
+  font-size: 1em;
+}
+
+.schedule-text h2 a,
+.schedule-text h3 a {
+  color: tomato;
+}
+
+.schedule-season-episode {
+  position: absolute;
+  left: 5%;
+  top: 0;
+  color: rgb(230, 230, 230);
+  font-size: 4em;
+  font-weight: 600;
+  z-index: -1;
+}

@@ -13,6 +13,7 @@ import ShowCrewDetails from './Components/ShowCrewDetails/ShowCrewDetails';
 import PeopleGalleryDetails from './Components/PeopleGalleryDetails/PeopleGalleryDetails';
 import People from './Components/People/People';
 import Home from './Components/Home/Home';
+import Schedule from './Components/Schedule/Schedule';
 import './App.css';
 
 function App() {
@@ -31,7 +32,9 @@ function App() {
             <Route path="/People">
               <People />
             </Route>
-            <Route path="/Schedule"></Route>
+            <Route path="/Schedule">
+              <Schedule />
+            </Route>
 
             <Route path="/search/shows=:query">
               <SearchShows />
