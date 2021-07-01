@@ -35,3 +35,7 @@ export const getScheduleByCurrentDate = (country, currentData) => {
 export const getShows = () => {
   return axios.get(`http://api.tvmaze.com/shows`);
 };
+
+export const getCountries = () => {
+  return axios.get('https://restcountries.eu/rest/v2/all');
+};

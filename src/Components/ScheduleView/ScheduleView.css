@@ -1,7 +1,6 @@
 .schedule-card {
   display: flex;
   margin-bottom: 20px;
-  width: 1000px;
   border-left: 1px solid black;
   border-bottom: 1px solid black;
 }
@@ -39,7 +38,7 @@
 .schedule-season-episode {
   position: absolute;
   left: 5%;
-  top: 0;
+  top: -4px;
   color: rgb(230, 230, 230);
   font-size: 4em;
   font-weight: 600;

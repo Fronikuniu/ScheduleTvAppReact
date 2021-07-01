@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getScheduleByCurrentDate } from '../Requests/Requests';
+import { getCountries, getScheduleByCurrentDate } from '../Requests/Requests';
+import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
+import Ads from '../Ads/Ads';
 import ScheduleView from '../ScheduleView/ScheduleView';
 import './Schedule.css';
 
@@ -9,10 +11,11 @@ function Schedule() {
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const year = date.getFullYear();
 
-  const [currentData] = useState(`${year}-${month}-${day}`);
+  const [currentData, setCurrentData] = useState(`${year}-${month}-${day}`);
   const [country, setCountry] = useState('US');
 
   const [scheduleData, setScheduleData] = useState([]);
+  const [countryData, setCountryData] = useState([]);
 
   useEffect(() => {
     getScheduleByCurrentDate(country, currentData)
@@ -21,9 +24,22 @@ function Schedule() {
         setScheduleData(data);
       })
       .catch((error) => {});
-  }, []);
 
-  console.log(scheduleData);
+    getCountries()
+      .then((countryResult) => {
+        const { data } = countryResult;
+        setCountryData(data);
+      })
+      .catch((error) => {});
+  }, [country, currentData]);
+
+  const onChangeData = (event) => {
+    const newDay = event.value.getDate().toString().padStart(2, '0');
+    const newMonth = (event.value.getMonth() + 1).toString().padStart(2, '0');
+    const newYear = event.value.getFullYear();
+
+    setCurrentData(`${newYear}-${newMonth}-${newDay}`);
+  };
 
   return (
     <>
@@ -35,10 +51,40 @@ function Schedule() {
               of the day <span>{currentData}</span>
             </span>
           </h1>
-          <div className="schedule-display">
-            {scheduleData.map((schedule) => {
-              return <ScheduleView key={schedule.id} schedule={schedule} />;
-            })}
+          <div className="schedule-content">
+            <div className="schedule-display">
+              {scheduleData.map((schedule) => {
+                return <ScheduleView key={schedule.id} schedule={schedule} />;
+              })}
+            </div>
+            <aside className="schedule__aside">
+              <div className="schedule-aside-content">
+                <h4>
+                  Choose date: <span>{currentData}</span>
+                </h4>
+
+                <CalendarComponent value={currentData} change={(event) => onChangeData(event)} />
+                <h4>Choose country:</h4>
+                <select
+                  name="selectCountry"
+                  className="schedule-aside-select"
+                  onChange={(event) => {
+                    setCountry(event.target.value);
+                  }}
+                >
+                  <option value="US">United States</option>
+                  <option value="GB">United Kingdom</option>
+                  {countryData.map((countryItem) => {
+                    return (
+                      <option key={countryItem.name} value={countryItem.alpha2Code}>
+                        {countryItem.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+              <Ads />
+            </aside>
           </div>
         </div>
       </div>

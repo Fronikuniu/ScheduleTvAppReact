@@ -9,10 +9,10 @@ function ScheduleView({ schedule }) {
         <div className="schedule-text">
           {' '}
           <h2>
-            <Link>{schedule.show.name != null ? schedule.show.name : ''}</Link>
+            <Link to={`/search/show/${schedule.show.id}`}>{schedule.show.name != null ? schedule.show.name : ''}</Link>
           </h2>
           <h3>
-            New episode: <Link>{schedule.name != null ? schedule.name : ''}</Link>
+            New episode: <Link to="">{schedule.name != null ? schedule.name : ''}</Link>
           </h3>
           <span className="schedule-season-episode">
             S{schedule.season != null ? schedule.season : ''} E{schedule.number != null ? schedule.number : ''}

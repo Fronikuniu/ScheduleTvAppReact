@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getShowsInfoById, getPeopleInfoById } from '../Requests/Requests';
+import { getScheduleByCurrentDate } from '../Requests/Requests';
 import ShowsCard from '../ShowsCard/ShowsCard';
 import PeopleCard from '../PeopleCard/PeopleCard';
+import ScheduleView from '../ScheduleView/ScheduleView';
 import Loader from '../Loader/Loader';
 import './Home.css';
 
@@ -14,7 +16,7 @@ function Home() {
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const year = date.getFullYear();
 
-  const [currentData] = useState(`${day}-${month}-${year}`);
+  const [currentData] = useState(`${year}-${month}-${day}`);
   localStorage.setItem('CurrentData', currentData);
   // const data = localStorage.getItem('CurrentData');
   // const data = '30-06-2021';
@@ -29,8 +31,8 @@ function Home() {
   // const localPeopleListOfIds = localStorage.getItem('localPeopleListOfIds');
   const [peopleDataOfIds, setPeopleDataOfIds] = useState([]);
 
-  // console.log(data);
-  // console.log(currentData);
+  const [scheduleData, setScheduleData] = useState([]);
+  const [country] = useState('US');
 
   useEffect(() => {
     setLoadingState(true);
@@ -56,9 +58,6 @@ function Home() {
       setPeopleListOfIds(peopleListOfIds);
     };
     generateRandomIds();
-
-    // console.log(showsListOfIds);
-    // console.log(peopleListOfIds);
 
     const getPeopleAndShowsInfo = async () => {
       setLoadingState(true);
@@ -87,9 +86,17 @@ function Home() {
     };
     getPeopleAndShowsInfo();
 
+    getScheduleByCurrentDate(country, currentData)
+      .then((scheduleResponse) => {
+        const { data } = scheduleResponse;
+        setScheduleData(data);
+      })
+      .catch((error) => {});
+
     setLoadingState(false);
   }, []);
 
+  console.log(scheduleData);
   // console.log(showsDataOfIds);
   // console.log(peopleDataOfIds);
 
@@ -124,12 +131,16 @@ function Home() {
             </div>
             <div className="schedule">
               <h1>Schedule for today!</h1>
-              <div className="schedule-display"></div>
+              <div className="schedule-display">
+                {scheduleData.slice(0, 3).map((scheduleItem) => (
+                  <ScheduleView key={scheduleItem.id} schedule={scheduleItem} />
+                ))}
+              </div>
 
-              <Link to="" className="button-of-full-view">
+              <Link to="/Schedule" className="button-of-full-view">
                 Full schedule! <span className="material-icons-round">double_arrow</span>
               </Link>
-            </div>{' '}
+            </div>
           </>
         ) : (
           <Loader />
