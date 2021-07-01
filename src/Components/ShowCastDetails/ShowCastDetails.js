@@ -27,8 +27,6 @@ function ShowCastDetails() {
     setLoadingState(false);
   }, [id]);
 
-  console.log(castDetails);
-
   return (
     <>
       <section className="details__container">

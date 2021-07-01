@@ -44,9 +44,6 @@ function People() {
     setLoadingState(false);
   }, []);
 
-  console.log(peopleList);
-  console.log(peopleListInfo);
-
   return (
     <>
       <section className="show-people-container">

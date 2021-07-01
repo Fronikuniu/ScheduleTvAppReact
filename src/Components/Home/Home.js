@@ -22,14 +22,14 @@ function Home() {
   // const data = '30-06-2021';
 
   let [showsListOfIds, setShowsListOfIds] = useState();
+  const [showsDataOfIds, setShowsDataOfIds] = useState([]);
   // localStorage.setItem('localShowsListOfIds', showsListOfIds);
   // const localShowsListOfIds = localStorage.getItem('localShowsListOfIds');
-  const [showsDataOfIds, setShowsDataOfIds] = useState([]);
 
   let [peopleListOfIds, setPeopleListOfIds] = useState();
+  const [peopleDataOfIds, setPeopleDataOfIds] = useState([]);
   // localStorage.setItem('localPeopleListOfIds', peopleListOfIds);
   // const localPeopleListOfIds = localStorage.getItem('localPeopleListOfIds');
-  const [peopleDataOfIds, setPeopleDataOfIds] = useState([]);
 
   const [scheduleData, setScheduleData] = useState([]);
   const [country] = useState('US');
@@ -95,10 +95,6 @@ function Home() {
 
     setLoadingState(false);
   }, []);
-
-  console.log(scheduleData);
-  // console.log(showsDataOfIds);
-  // console.log(peopleDataOfIds);
 
   return (
     <>

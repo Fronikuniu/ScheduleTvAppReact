@@ -15,8 +15,6 @@ function Shows() {
       .catch((error) => {});
   }, []);
 
-  console.log(showsList);
-
   return (
     <>
       <section className="show-people-container">

@@ -34,9 +34,9 @@ function Schedule() {
   }, [country, currentData]);
 
   const onChangeData = (event) => {
-    const newDay = event.value.getDate().toString().padStart(2, '0');
-    const newMonth = (event.value.getMonth() + 1).toString().padStart(2, '0');
-    const newYear = event.value.getFullYear();
+    const newDay = event.getDate().toString().padStart(2, '0');
+    const newMonth = (event.getMonth() + 1).toString().padStart(2, '0');
+    const newYear = event.getFullYear();
 
     setCurrentData(`${newYear}-${newMonth}-${newDay}`);
   };
@@ -62,8 +62,8 @@ function Schedule() {
                 <h4>
                   Choose date: <span>{currentData}</span>
                 </h4>
+                <CalendarComponent value={currentData} change={(event) => onChangeData(event.value)} />
 
-                <CalendarComponent value={currentData} change={(event) => onChangeData(event)} />
                 <h4>Choose country:</h4>
                 <select
                   name="selectCountry"
