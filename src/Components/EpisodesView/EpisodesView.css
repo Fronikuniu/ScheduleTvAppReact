@@ -1,0 +1,16 @@
+.episodes-view {
+  width: 70%;
+}
+
+.episodes-view h1 {
+  margin-bottom: 40px;
+}
+
+.episodes-view__display {
+  display: flex;
+}
+
+.episodes-view__display img {
+  height: 200px;
+  width: 350px;
+}

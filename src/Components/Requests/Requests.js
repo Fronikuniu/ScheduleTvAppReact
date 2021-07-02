@@ -20,6 +20,10 @@ export const getShowsInfoById = async (id) => {
   return { basic, episodes, seasons, cast, crew, images };
 };
 
+export const getEpisodeInfo = (episodeid) => {
+  return axios.get(`https://api.tvmaze.com/episodes/${episodeid}`);
+};
+
 export const searchPeopleByName = (name) => {
   return axios.get(`http://api.tvmaze.com/search/people?q=${name}`);
 };

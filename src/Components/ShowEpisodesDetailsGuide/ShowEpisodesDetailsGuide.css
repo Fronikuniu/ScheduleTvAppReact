@@ -5,7 +5,7 @@
   border-radius: 20px;
 }
 
-.episode-details-guide-item h4 {
+.episode-details-guide-item h4 a {
   color: tomato;
 }
 

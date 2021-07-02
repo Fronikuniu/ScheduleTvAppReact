@@ -47,7 +47,9 @@ function ShowEpisodesDetailsGuide() {
 
                       return (
                         <div key={episode.id} className="episode-details-guide-item">
-                          <h4>{episode.name}</h4>
+                          <h4>
+                            <Link to={`/search/show/${basic.id}/episodes/${episode.id}`}>{episode.name}</Link>
+                          </h4>
 
                           <p className="episode-details-guide-item-episode-info">
                             Episode:

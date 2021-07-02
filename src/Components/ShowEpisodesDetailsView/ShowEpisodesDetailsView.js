@@ -19,7 +19,7 @@ function ShowEpisodesDetailsView({ basic, episodes, seasons }) {
               <div className="episodes-data-item">{episode.number}</div>
               <div className="episodes-data-item">{episode.airdate}</div>
               <div className="episodes-data-item">
-                <Link to="">{episode.name}</Link>
+                <Link to={`/search/show/${basic.id}/episodes/${episode.id}`}>{episode.name}</Link>
               </div>
             </div>
           );

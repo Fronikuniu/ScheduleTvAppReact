@@ -14,6 +14,7 @@ import PeopleGalleryDetails from './Components/PeopleGalleryDetails/PeopleGaller
 import People from './Components/People/People';
 import Home from './Components/Home/Home';
 import Schedule from './Components/Schedule/Schedule';
+import Episodes from './Components/Episodes/Episodes';
 import './App.css';
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
             <Route exact path="/search/show/:id">
               <ShowDetails />
             </Route>
-            <Route path="/search/show/:id/episodes">
+            <Route exact path="/search/show/:id/episodes">
               <ShowEpisodesDetails />
             </Route>
             <Route path="/search/show/:id/episodesguide">
@@ -60,6 +61,9 @@ function App() {
             </Route>
             <Route path="/search/show/:id/gallery">
               <ShowGalleryDetails />
+            </Route>
+            <Route path="/search/show/:id/episodes/:episodeid">
+              <Episodes />
             </Route>
 
             <Route exact path="/search/people/:id">
