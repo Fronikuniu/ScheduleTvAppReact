@@ -17,7 +17,7 @@ function Home() {
   const year = date.getFullYear();
 
   const [currentData] = useState(`${year}-${month}-${day}`);
-  localStorage.setItem('CurrentData', currentData);
+  // localStorage.setItem('CurrentData', currentData);
   // const data = localStorage.getItem('CurrentData');
   // const data = '30-06-2021';
 

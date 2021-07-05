@@ -3,6 +3,7 @@
   margin-bottom: 20px;
   border-left: 1px solid black;
   border-bottom: 1px solid black;
+  min-height: 60px;
 }
 
 .schedule-time {
@@ -10,8 +11,7 @@
   justify-content: center;
   align-items: center;
   background-color: tomato;
-  width: 60px;
-  height: 60px;
+  width: 65px;
   font-weight: 600;
   font-size: 1.1em;
 }

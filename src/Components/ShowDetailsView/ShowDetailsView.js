@@ -68,12 +68,12 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
                   />
                 </>
               ) : (
-                ''
+                'No info'
               )}
             </span>
           </h3>
           <h3>
-            Premiered: <span>{basic.premiered}</span>
+            Premiered: <span>{basic.premiered != null ? basic.premiered : 'No info'}</span>
           </h3>
           <h3>
             Schedule:{' '}
@@ -82,29 +82,31 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
                 ? `${basic.schedule.days.map((day) => {
                     return `${day} `;
                   })} at ${basic.schedule.time} (${basic.runtime}min)`
-                : ''}
+                : 'No info'}
             </span>
           </h3>
           <h3>
-            Status: <span>{basic.status}</span>
+            Status: <span>{basic.status != null ? basic.status : 'No info'}</span>
           </h3>
           <h3>
-            Show type: <span>{basic.type}</span>
+            Show type: <span>{basic.type != null ? basic.type : 'No info'}</span>
           </h3>
           <h3>
             Genres:{' '}
             <span>
-              {basic.genres.map((genre) => {
-                return `${genre} `;
-              })}
+              {basic.genres != null
+                ? basic.genres.map((genre) => {
+                    return `${genre} `;
+                  })
+                : 'No info'}
             </span>
           </h3>
           <h3>
-            Language: <span>{basic.language}</span>
+            Language: <span>{basic.language != null ? basic.language : 'No info'}</span>
           </h3>
           <h3 className="details-view__aside__rating">
             <i className="material-icons-round star">star_border</i>
-            Rating: {basic.rating != null ? basic.rating.average : ''}
+            Rating: {basic.rating != null ? basic.rating.average : 'No info'}
           </h3>
         </div>
 

@@ -34,9 +34,6 @@ function Episodes() {
     setLoadingState(false);
   }, [id, episodeid]);
 
-  console.log(episodeData);
-  console.log(showData);
-
   return (
     <>
       <section className="episodes__container">

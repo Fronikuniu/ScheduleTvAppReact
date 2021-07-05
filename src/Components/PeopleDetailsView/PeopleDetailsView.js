@@ -37,15 +37,15 @@ function PeopleDetailsView({ peopleInfo }) {
         <div className="details-view__aside__info">
           <h2>People Info:</h2>
           <h3>
-            Gender: <span>{peopleInfo.gender}</span>
+            Gender: <span>{peopleInfo.gender != null ? peopleInfo.gender : 'No info'}</span>
           </h3>
 
           <h3>
-            Age: <span>{peopleInfo.birthday != null ? currentYear - peopleInfo.birthday.slice(0, 4) : ''}</span>
+            Age: <span>{peopleInfo.birthday != null ? currentYear - peopleInfo.birthday.slice(0, 4) : 'No info'}</span>
           </h3>
 
           <h3>
-            Birthday: <span>{peopleInfo.birthday}</span>
+            Birthday: <span>{peopleInfo.birthday != null ? peopleInfo.birthday : 'No info'}</span>
           </h3>
 
           <h3>
@@ -62,7 +62,7 @@ function PeopleDetailsView({ peopleInfo }) {
                   />
                 </>
               ) : (
-                ''
+                'No info'
               )}
             </span>
           </h3>
