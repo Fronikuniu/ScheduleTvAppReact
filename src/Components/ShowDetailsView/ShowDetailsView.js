@@ -54,12 +54,9 @@ function ShowDetailsView({ basic, episodes, cast, seasons }) {
           <h3>
             Network:{' '}
             <span>
-              {' '}
               {basic.network != null ? (
                 <>
-                  <Link to="" className="">
-                    {basic.network.name}
-                  </Link>{' '}
+                  {basic.network.name}{' '}
                   <img
                     className="h1__flag"
                     src={`//static.tvmaze.com/intvendor/flags/${basic.network.country.code.toLowerCase()}.png`}
