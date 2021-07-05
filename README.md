@@ -4,8 +4,8 @@ An application that displays the TV schedule. You can search for movies, series,
 
 ## API used
 
-[https://www.tvmaze.com/api]
-[https://restcountries.eu/]
+- [https://www.tvmaze.com/api]
+- [https://restcountries.eu/]
 
 ## Used technologies:
 
