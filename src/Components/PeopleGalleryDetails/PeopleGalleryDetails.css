@@ -1,6 +1,7 @@
 .people-details-view__display {
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .people-gallery-details {

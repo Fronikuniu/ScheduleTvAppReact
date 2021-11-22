@@ -1,5 +1,12 @@
 .ads {
+  display: none;
   width: 90%;
+}
+
+@media (min-width: 1024px) {
+  .ads {
+    display: block;
+  }
 }
 
 .ads img {

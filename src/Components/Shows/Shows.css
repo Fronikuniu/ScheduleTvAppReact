@@ -5,4 +5,13 @@
 .shows-people-display {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1024px) {
+  .shows-people-display {
+    justify-content: space-between;
+  }
 }

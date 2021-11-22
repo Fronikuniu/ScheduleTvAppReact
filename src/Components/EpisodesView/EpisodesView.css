@@ -1,5 +1,11 @@
 .episodes-view {
-  width: 70%;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .episodes-view {
+    width: 70%;
+  }
 }
 
 .episodes-view h1 {
@@ -8,9 +14,26 @@
 
 .episodes-view__display {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .episodes-view__display {
+    flex-direction: row;
+    align-items: unset;
+  }
 }
 
 .episodes-view__display img {
   height: 200px;
-  width: 350px;
+  width: 300px;
+  object-fit: cover;
+}
+
+@media (min-width: 350px) {
+  .episodes-view__display img {
+    height: 200px;
+    width: 350px;
+  }
 }

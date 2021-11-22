@@ -1,16 +1,19 @@
 .show-cast-details-view__display {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .cast-person-card {
   display: flex;
-  margin: 0 25px 25px 0;
+  width: 300px;
 }
 
 .cast-person__text {
   padding: 0.5rem;
-  width: 227px;
+  width: 70%;
 }
 
 .cast-person__text a {
@@ -33,6 +36,5 @@
 }
 
 .cast-person-img {
-  width: 140px;
-  height: 197px;
+  width: 30%;
 }

@@ -12,5 +12,15 @@ h1 span {
 }
 
 .search-people__display {
-  width: 70%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+@media (min-width: 1024px) {
+  .search-people__display {
+    width: 70%;
+  }
 }
