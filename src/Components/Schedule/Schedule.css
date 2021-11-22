@@ -61,7 +61,7 @@
   top: 170px;
   border: 1px solid gray;
   transform: translateX(270px);
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 
 .schedule-aside-content.rwd.open {

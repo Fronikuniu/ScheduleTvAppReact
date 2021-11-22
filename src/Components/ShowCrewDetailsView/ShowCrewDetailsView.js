@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Ads from '../Ads/Ads';
 import ShowDetailsViewMenu from '../ShowDetailsViewMenu/ShowDetailsViewMenu';
 import placeholder from '../../assets/images/placeholder.jpg';
-import './ShowCrewDetailsView.css';
 
 function ShowCrewDetailsView({ basic, crew }) {
   let i = 0;
